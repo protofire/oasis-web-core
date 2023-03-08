@@ -4,7 +4,9 @@ import { useSafeSDK } from '@/hooks/coreSDK/safeCoreSDK'
 
 // Extends the return type of each txSender function by undefined
 export type NullableTxSenderFunctions = {
-  [K in keyof typeof txSender]: (...args: Parameters<typeof txSender[K]>) => undefined | ReturnType<typeof txSender[K]>
+  [K in keyof typeof txSender]: (
+    ...args: Parameters<(typeof txSender)[K]>
+  ) => undefined | ReturnType<(typeof txSender)[K]>
 }
 
 const useTxSender = (): NullableTxSenderFunctions => {
