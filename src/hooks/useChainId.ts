@@ -10,7 +10,7 @@ import useWallet from './wallets/useWallet'
 import useChains from './useChains'
 import { getChainId } from '@/utils/chains'
 
-const defaultChainId = IS_PRODUCTION ? chains.eth : chains.gor
+const defaultChainId = IS_PRODUCTION ? chains.sapphire : chains.sapphire
 
 // Use the location object directly because Next.js's router.query is available only in an effect
 const getLocationQuery = (): ParsedUrlQuery => {

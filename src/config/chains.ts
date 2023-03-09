@@ -228,6 +228,7 @@ const chains: Record<string, string> = {
   mtt: '16000',
   mtttest: '16001',
   btcix: '19845',
+  sapphire: '23294',
   web: '24484',
   mintme: '24734',
   esn: '31102',
