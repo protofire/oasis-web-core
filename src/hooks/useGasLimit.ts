@@ -6,10 +6,11 @@ import type { SafeTransaction } from '@safe-global/safe-core-sdk-types'
 import { OperationType } from '@safe-global/safe-core-sdk-types'
 import useAsync from '@/hooks/useAsync'
 import useChainId from '@/hooks/useChainId'
-import { useWeb3ReadOnly } from '@/hooks/wallets/web3'
+import { createWeb3ReadOnly, useWeb3ReadOnly } from '@/hooks/wallets/web3'
 import chains from '@/config/chains'
 import useSafeAddress from './useSafeAddress'
 import useWallet from './wallets/useWallet'
+import { RPC_AUTHENTICATION } from '@safe-global/safe-gateway-typescript-sdk'
 import { useSafeSDK } from './coreSDK/safeCoreSDK'
 import useIsSafeOwner from './useIsSafeOwner'
 import { Errors, logError } from '@/services/exceptions'
@@ -51,6 +52,14 @@ const useGasLimit = (
   const walletAddress = wallet?.address
   const isOwner = useIsSafeOwner()
   const currentChainId = useChainId()
+  const customWeb3ReadOnly = useMemo(
+    () =>
+      createWeb3ReadOnly({
+        value: 'https://emerald.oasis.dev',
+        authentication: RPC_AUTHENTICATION.NO_AUTHENTICATION,
+      }),
+    [],
+  )
 
   const encodedSafeTx = useMemo<string>(() => {
     if (!safeTx || !safeSDK || !walletAddress) {
@@ -66,6 +75,17 @@ const useGasLimit = (
 
   const [gasLimit, gasLimitError, gasLimitLoading] = useAsync<BigNumber>(() => {
     if (!safeAddress || !walletAddress || !encodedSafeTx || !web3ReadOnly) return
+
+    if (currentChainId === chains.sapphire && customWeb3ReadOnly) {
+      return customWeb3ReadOnly
+        .estimateGas({
+          to: safeAddress,
+          from: walletAddress,
+          data: encodedSafeTx,
+          type: operationType,
+        })
+        .then((gasLimit) => incrementByPercentage(gasLimit, 300))
+    }
 
     return web3ReadOnly
       .estimateGas({
