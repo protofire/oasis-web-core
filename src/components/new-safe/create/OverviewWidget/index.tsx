@@ -4,7 +4,7 @@ import { useCurrentChain } from '@/hooks/useChains'
 import useWallet from '@/hooks/wallets/useWallet'
 import { Card, Grid, Typography } from '@mui/material'
 import type { ReactElement } from 'react'
-import SafeLogo from '@/public/images/logo-no-text.svg'
+import SafeLogo from '@/public/images/oasis-icon-blue.svg'
 
 import css from '@/components/new-safe/create/OverviewWidget/styles.module.css'
 
