@@ -12,7 +12,7 @@ import SafeTokenWidget, { getSafeTokenAddress } from '@/components/common/SafeTo
 import NotificationCenter from '@/components/notification-center/NotificationCenter'
 import { AppRoutes } from '@/config/routes'
 import useChainId from '@/hooks/useChainId'
-import SafeLogo from '@/public/images/logo-no-text.svg'
+import SafeLogo from '@/public/images/Oasis-logo.svg'
 import Link from 'next/link'
 import useSafeAddress from '@/hooks/useSafeAddress'
 
