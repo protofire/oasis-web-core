@@ -40,17 +40,17 @@ const Footer = (): ReactElement | null => {
           <Typography variant="caption">&copy;2022–{new Date().getFullYear()} Safe Ecosystem Foundation</Typography>
         </li>
         <li>
-          <Link href={AppRoutes.terms} passHref>
-            <MUILink>Terms</MUILink>
-          </Link>
+          <ExternalLink noIcon href="https://oasisprotocol.org/terms-of-use">
+            Terms
+          </ExternalLink>
         </li>
         <li>
-          <Link href={AppRoutes.privacy} passHref>
-            <MUILink>Privacy</MUILink>
-          </Link>
+          <ExternalLink noIcon href="https://oasisprotocol.org/privacy-policy">
+            Privacy
+          </ExternalLink>
         </li>
         <li>
-          <ExternalLink noIcon href="https://safe.global/licenses">
+          <ExternalLink noIcon href="https://app.safe.global/licenses">
             Licenses
           </ExternalLink>
         </li>
