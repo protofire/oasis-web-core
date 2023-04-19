@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react'
 import { Typography } from '@mui/material'
-import Link from 'next/link'
+// import Link from 'next/link'
 import { useRouter } from 'next/router'
 import css from './styles.module.css'
 // import { useAppDispatch } from '@/store'
@@ -9,7 +9,7 @@ import { AppRoutes } from '@/config/routes'
 import packageJson from '../../../../package.json'
 // import AppstoreButton from '../AppStoreButton'
 import ExternalLink from '../ExternalLink'
-import MUILink from '@mui/material/Link'
+// import MUILink from '@mui/material/Link'
 
 const footerPages = [
   AppRoutes.welcome,
@@ -54,11 +54,11 @@ const Footer = (): ReactElement | null => {
             Licenses
           </ExternalLink>
         </li>
-        <li>
+        {/* <li>
           <Link href={AppRoutes.imprint} passHref>
             <MUILink>Imprint</MUILink>
           </Link>
-        </li>
+        </li> */}
         {/* <li>
           <Link href="#" passHref>
             <MUILink onClick={onCookieClick}>Preferences</MUILink>
