@@ -42,7 +42,6 @@
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.11.2",
     "@mui/x-date-pickers": "^5.0.12",
-    "@oasisprotocol/sapphire-paratime": "^1.0.15",
     "@reduxjs/toolkit": "^1.8.2",
     "@safe-global/safe-core-sdk": "^3.3.2",
     "@safe-global/safe-core-sdk-utils": "^1.7.2",
