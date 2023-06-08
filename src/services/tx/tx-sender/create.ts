@@ -34,14 +34,7 @@ const getRecommendedTxParams = async (
   let estimation: SafeTransactionEstimation | undefined
 
   try {
-    // WATCHOUT!!! On Oasis gas estimation is not implemented yet, therefore we have such workaround
-    // estimation = await estimateSafeTxGas(String(chainId), safeAddress, txParams)
-    const currentNonce = await safeSDK.getNonce()
-    estimation = {
-      safeTxGas: '0',
-      currentNonce,
-      recommendedNonce: currentNonce,
-    }
+    estimation = await estimateSafeTxGas(String(chainId), safeAddress, txParams)
   } catch (e) {
     try {
       // If the initial transaction data causes the estimation to fail,
