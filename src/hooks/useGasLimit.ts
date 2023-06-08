@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from 'react'
-import { BigNumber, utils } from 'ethers'
+import type { BigNumber } from 'ethers'
 import type Safe from '@safe-global/safe-core-sdk'
 import { encodeSignatures } from '@/services/tx/encodeSignatures'
 import type { SafeTransaction } from '@safe-global/safe-core-sdk-types'
@@ -66,39 +66,6 @@ const useGasLimit = (
 
   const [gasLimit, gasLimitError, gasLimitLoading] = useAsync<BigNumber>(() => {
     if (!safeAddress || !walletAddress || !encodedSafeTx || !web3ReadOnly) return
-
-    if ((currentChainId === chains.sapphire || currentChainId === chains['sapphire-testnet']) && safeTx) {
-      const { data, to, value } = safeTx.data
-
-      if (data === '0x' && value === '0' && to === safeAddress) {
-        // cancellation
-        return Promise.resolve(BigNumber.from(80_000))
-      } else if (data === '0x' && value !== '0' && utils.isAddress(to)) {
-        // sending native token
-        return Promise.resolve(BigNumber.from(100_000))
-      } else if (data.startsWith('0xa9059cbb') && value === '0' && utils.isAddress(to)) {
-        // transfer erc20 token
-        return Promise.resolve(BigNumber.from(150_000))
-      } else if (data.startsWith('0x42842e0e') && value === '0' && utils.isAddress(to)) {
-        // transfer erc1155 token
-        return Promise.resolve(BigNumber.from(150_000))
-      } else if (data.startsWith('0xf8dc5dd9') && value === '0' && to === safeAddress) {
-        // remove owner
-        return Promise.resolve(BigNumber.from(70_000))
-      } else if (data.startsWith('0x0d582f13') && value === '0' && to === safeAddress) {
-        // add owner
-        return Promise.resolve(BigNumber.from(130_000))
-      } else if (data.startsWith('0xe318b52b') && value === '0' && to === safeAddress) {
-        // swap owners
-        return Promise.resolve(BigNumber.from(100_000))
-      } else if (data.startsWith('0x694e80c3') && value === '0' && to === safeAddress) {
-        // changing the threshold
-        return Promise.resolve(BigNumber.from(70_000))
-      } else {
-        // Something else...
-        return Promise.resolve(BigNumber.from(3_500_000))
-      }
-    }
 
     return web3ReadOnly
       .estimateGas({
