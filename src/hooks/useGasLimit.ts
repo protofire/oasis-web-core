@@ -67,7 +67,7 @@ const useGasLimit = (
   const [gasLimit, gasLimitError, gasLimitLoading] = useAsync<BigNumber>(() => {
     if (!safeAddress || !walletAddress || !encodedSafeTx || !web3ReadOnly) return
 
-    if (currentChainId === chains.sapphire && safeTx) {
+    if ((currentChainId === chains.sapphire || currentChainId === chains['sapphire-testnet']) && safeTx) {
       const { data, to, value } = safeTx.data
 
       if (data === '0x' && value === '0' && to === safeAddress) {
