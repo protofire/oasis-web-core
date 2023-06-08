@@ -66,13 +66,7 @@ export const createNewSafe = async (ethersProvider: Web3Provider, props: DeployS
   const ethAdapter = createEthersAdapter(ethersProvider)
 
   const safeFactory = await SafeFactory.create({ ethAdapter })
-  return safeFactory.deploySafe({
-    ...props,
-    options: {
-      ...props.options,
-      gasLimit: 350_000,
-    },
-  })
+  return safeFactory.deploySafe(props)
 }
 
 /**
