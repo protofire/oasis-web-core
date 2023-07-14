@@ -1,0 +1,13 @@
+diff --git a/node_modules/@safe-global/safe-ethers-lib/dist/src/contracts/GnosisSafeProxyFactory/GnosisSafeProxyFactoryEthersContract.js b/node_modules/@safe-global/safe-ethers-lib/dist/src/contracts/GnosisSafeProxyFactory/GnosisSafeProxyFactoryEthersContract.js
+index 01ab975..ab4a21b 100644
+--- a/node_modules/@safe-global/safe-ethers-lib/dist/src/contracts/GnosisSafeProxyFactory/GnosisSafeProxyFactoryEthersContract.js
++++ b/node_modules/@safe-global/safe-ethers-lib/dist/src/contracts/GnosisSafeProxyFactory/GnosisSafeProxyFactoryEthersContract.js
+@@ -26,7 +26,7 @@ class GnosisSafeProxyFactoryEthersContract {
+             if (callback) {
+                 callback(txResponse.hash);
+             }
+-            const txReceipt = await txResponse.wait();
++            const txReceipt = await txResponse.wait(2);
+             const proxyCreationEvent = (_a = txReceipt === null || txReceipt === void 0 ? void 0 : txReceipt.events) === null || _a === void 0 ? void 0 : _a.find(({ event }) => event === 'ProxyCreation');
+             if (!proxyCreationEvent || !proxyCreationEvent.args) {
+                 throw new Error('SafeProxy was not deployed correctly');
