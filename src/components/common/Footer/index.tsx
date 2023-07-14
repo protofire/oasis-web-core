@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import css from './styles.module.css'
 import { AppRoutes } from '@/config/routes'
 import packageJson from '../../../../package.json'
-import AppstoreButton from '../AppStoreButton'
+// import AppstoreButton from '../AppStoreButton'
 import ExternalLink from '../ExternalLink'
 import MUILink from '@mui/material/Link'
 import { IS_DEV, IS_OFFICIAL_HOST } from '@/config/constants'
@@ -44,18 +44,27 @@ const Footer = (): ReactElement | null => {
   return (
     <footer className={css.container}>
       <ul>
-        {IS_OFFICIAL_HOST || IS_DEV ? (
+        {(IS_OFFICIAL_HOST || IS_DEV) === false ? (
           <>
             <li>
-              <Typography variant="caption">&copy;2022–{new Date().getFullYear()} Core Contributors GmbH</Typography>
+              <Typography variant="caption">&copy;2022–{new Date().getFullYear()} Oasis Safe</Typography>
             </li>
             <li>
-              <FooterLink href={getHref(AppRoutes.terms)}>Terms</FooterLink>
+              <ExternalLink noIcon href="https://oasisprotocol.org/">
+                Oasis Network
+              </ExternalLink>
             </li>
             <li>
-              <FooterLink href={getHref(AppRoutes.privacy)}>Privacy</FooterLink>
+              <ExternalLink noIcon href="https://oasisprotocol.org/terms-of-use">
+                Terms
+              </ExternalLink>
             </li>
             <li>
+              <ExternalLink noIcon href="https://oasisprotocol.org/privacy-policy">
+                Privacy
+              </ExternalLink>
+            </li>
+            {/* <li>
               <FooterLink href={getHref(AppRoutes.licenses)}>Licenses</FooterLink>
             </li>
             <li>
@@ -66,10 +75,10 @@ const Footer = (): ReactElement | null => {
             </li>
             <li>
               <FooterLink href={getHref(AppRoutes.settings.index)}>Preferences</FooterLink>
-            </li>
+            </li> */}
           </>
         ) : (
-          <li>{'This is an unofficial distribution of Safe{Wallet}'}</li>
+          <li>{'This is an unofficial distribution of Oasis Safe'}</li>
         )}
 
         <li>
@@ -77,9 +86,9 @@ const Footer = (): ReactElement | null => {
             v{packageJson.version}
           </ExternalLink>
         </li>
-        <li>
+        {/* <li>
           <AppstoreButton placement="footer" />
-        </li>
+        </li> */}
       </ul>
     </footer>
   )
