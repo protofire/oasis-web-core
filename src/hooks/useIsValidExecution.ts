@@ -78,7 +78,7 @@ const useIsValidExecution = (
        * @see https://github.com/safe-global/safe-core-sdk/blob/main/packages/safe-ethers-lib/src/contracts/GnosisSafe/GnosisSafeContractEthers.ts#L126
        * This also fixes the over-fetching issue of the monkey patched provider.
        */
-      return safeContract.contract.callStatic.execTransaction(
+      return await safeContract.contract.callStatic.execTransaction(
         safeTx.data.to,
         safeTx.data.value,
         safeTx.data.data,
@@ -95,6 +95,9 @@ const useIsValidExecution = (
       const err = _err as EthersError
 
       if (isContractError(err)) {
+        // workaround for Oasis Sapphire networks
+        if (err.reason?.includes('GS025') && isOwner) return true
+
         // @ts-ignore
         err.reason += `: ${ContractErrorCodes[err.reason]}`
       }
