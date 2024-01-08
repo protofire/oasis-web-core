@@ -41,8 +41,8 @@ export const dispatchSafeMsgProposal = async ({
       messageHash,
       error: asError(error),
     })
-
-    throw error
+    //Temp disable propose_fail error due to false positive
+    // throw error
   }
 
   safeMsgDispatch(SafeMsgEvent.PROPOSE, {
