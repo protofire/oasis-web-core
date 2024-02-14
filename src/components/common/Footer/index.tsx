@@ -45,7 +45,7 @@ const Footer = (): ReactElement | null => {
   return (
     <footer className={css.container}>
       <ul>
-        {(IS_OFFICIAL_HOST || IS_DEV) === false ? (
+        {IS_OFFICIAL_HOST || IS_DEV ? (
           <>
             <li>
               <Typography variant="caption">&copy;2022–{new Date().getFullYear()} Oasis Safe</Typography>
