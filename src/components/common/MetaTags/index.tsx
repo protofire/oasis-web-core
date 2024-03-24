@@ -9,6 +9,7 @@ const titleText = 'Oasis Safe'
 const MetaTags = ({ prefetchUrl }: { prefetchUrl: string }) => (
   <>
     <meta name="description" content={descriptionText} />
+    {!IS_PRODUCTION && <meta name="robots" content="noindex" />}
 
     {/* Social sharing */}
     <meta name="og:image" content="https://safe.oasis.io/images/social-share.png" />
