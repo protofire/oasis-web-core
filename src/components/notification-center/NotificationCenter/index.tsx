@@ -86,6 +86,10 @@ const NotificationCenter = (): ReactElement => {
     dispatch(deleteAllNotifications())
   }
 
+  const onSettingsClick = () => {
+    setTimeout(handleClose, 300)
+  }
+
   const ExpandIcon = showAll ? ExpandLessIcon : ExpandMoreIcon
 
   return (
