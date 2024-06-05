@@ -62,11 +62,11 @@ export const CookieBanner = ({
 
   return (
     <Paper className={classnames(css.container, { [css.inverted]: inverted })}>
-      {warning && (
+      {/* {warning && (
         <Typography align="center" mb={2} color="warning.background" variant="body2">
           <SvgIcon component={WarningIcon} inheritViewBox fontSize="small" color="error" sx={{ mb: -0.4 }} /> {warning}
         </Typography>
-      )}
+      )} */}
 
       <form>
         <Grid container alignItems="center">
