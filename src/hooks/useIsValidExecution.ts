@@ -79,7 +79,7 @@ const useIsValidExecution = (
        * This also fixes the over-fetching issue of the monkey patched provider.
        */
 
-      return safeContract.contract.execTransaction.staticCall(
+      return await safeContract.contract.execTransaction.staticCall(
         safeTx.data.to,
         safeTx.data.value,
         safeTx.data.data,
@@ -94,7 +94,6 @@ const useIsValidExecution = (
       )
     } catch (_err) {
       const err = _err as EthersError
-
       if (isContractError(err)) {
         // workaround for Oasis Sapphire networks
         if (err.reason?.includes('GS025') && isOwner) return true
