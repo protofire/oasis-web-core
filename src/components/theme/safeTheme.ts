@@ -17,6 +17,7 @@ declare module '@mui/material/styles' {
     backdrop: Palette['primary']
     static: Palette['primary']
   }
+
   export interface PaletteOptions {
     border: PaletteOptions['primary']
     logo: PaletteOptions['primary']
@@ -33,6 +34,7 @@ declare module '@mui/material/styles' {
   export interface PaletteColor {
     background?: string
   }
+
   export interface SimplePaletteColorOptions {
     background?: string
   }
@@ -52,6 +54,7 @@ declare module '@mui/material/Button' {
   export interface ButtonPropsColorOverrides {
     background: true
   }
+
   export interface ButtonPropsVariantOverrides {
     danger: true
   }
@@ -279,6 +282,14 @@ const createSafeTheme = (mode: PaletteMode): Theme => {
           },
         },
       },
+      MuiChip: {
+        styleOverrides: {
+          colorSuccess: ({ theme }) => ({
+            backgroundColor: theme.palette.secondary.light,
+            height: '24px',
+          }),
+        },
+      },
       MuiAlert: {
         styleOverrides: {
           standardError: ({ theme }) => ({
@@ -445,8 +456,8 @@ const createSafeTheme = (mode: PaletteMode): Theme => {
             color: theme.palette.background.main,
             backgroundColor: theme.palette.text.primary,
             '& .MuiLink-root': {
-              color: isDarkMode ? theme.palette.background.main : theme.palette.secondary.main,
-              textDecorationColor: isDarkMode ? theme.palette.background.main : theme.palette.secondary.main,
+              color: isDarkMode ? theme.palette.primary.main : theme.palette.secondary.main,
+              textDecorationColor: isDarkMode ? theme.palette.primary.main : theme.palette.secondary.main,
             },
             '& .MuiLink-root:hover': {
               color: isDarkMode ? theme.palette.text.secondary : theme.palette.secondary.light,
