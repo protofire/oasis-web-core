@@ -11,6 +11,7 @@ import ExternalLink from '../ExternalLink'
 import MUILink from '@mui/material/Link'
 import ProtofireLogo from '@/public/images/protofire-logo.svg'
 import { HELP_CENTER_URL, IS_DEV, IS_OFFICIAL_HOST } from '@/config/constants'
+import darkPalette from '@/components/theme/darkPalette'
 
 const footerPages = [
   AppRoutes.welcome.index,
@@ -93,7 +94,7 @@ const Footer = (): ReactElement | null => {
           <AppstoreButton placement="footer" />
         </li> */}
         <li>
-          <FooterLink href={HELP_CENTER_URL}>
+          <Typography variant="caption">
             Supported by{' '}
             <SvgIcon
               component={ProtofireLogo}
@@ -101,8 +102,10 @@ const Footer = (): ReactElement | null => {
               fontSize="small"
               sx={{ verticalAlign: 'middle', mx: 0.5 }}
             />
-            Protofire
-          </FooterLink>
+            <MUILink href="https://protofire.io" sx={{ color: darkPalette.primary.main, textDecoration: 'none' }}>
+              Protofire
+            </MUILink>
+          </Typography>
         </li>
       </ul>
     </footer>
