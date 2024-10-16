@@ -58,9 +58,12 @@ const Footer = (): ReactElement | null => {
               </ExternalLink>
             </li>
             <li>
-              <FooterLink href={getHref(AppRoutes.terms)}>Terms</FooterLink>
+              <FooterLink href="https://portal.astar.network">Astar Portal</FooterLink>
             </li>
             <li>
+              <FooterLink href={getHref(AppRoutes.terms)}>Terms</FooterLink>
+            </li>
+            {/* <li>
               <FooterLink href={getHref(AppRoutes.privacy)}>Privacy</FooterLink>
             </li>
             {/* <li>
@@ -68,13 +71,13 @@ const Footer = (): ReactElement | null => {
             </li>
             <li>
               <FooterLink href={getHref(AppRoutes.imprint)}>Imprint</FooterLink>
-            </li>
+            </li> */}
             <li>
               <FooterLink href={getHref(AppRoutes.cookie)}>Cookie policy</FooterLink>
             </li>
             <li>
               <FooterLink href={getHref(AppRoutes.settings.index)}>Preferences</FooterLink>
-            </li> */}
+            </li>
             <li>
               <ExternalLink href={HELP_CENTER_URL} noIcon sx={{ span: { textDecoration: 'underline' } }}>
                 Help
