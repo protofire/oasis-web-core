@@ -58,9 +58,6 @@ const Footer = (): ReactElement | null => {
               </ExternalLink>
             </li>
             <li>
-              <FooterLink href="https://portal.astar.network">Astar Portal</FooterLink>
-            </li>
-            <li>
               <FooterLink href={getHref(AppRoutes.terms)}>Terms</FooterLink>
             </li>
             {/* <li>
