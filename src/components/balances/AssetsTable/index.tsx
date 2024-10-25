@@ -158,7 +158,7 @@ const AssetsTable = ({
               collapsed: item.tokenInfo.address === hidingAsset,
               content: (
                 <Typography textAlign="right">
-                  <FiatValue value={item.fiatBalance} />
+                  <FiatValue value={item.fiatBalance} precise={false} />
 
                   {rawFiatValue === 0 && (
                     <Tooltip

@@ -72,7 +72,7 @@ const Overview = (): ReactElement => {
                 </Typography>
                 <Typography component="div" variant="h1" fontSize={44} lineHeight="40px">
                   {safe.deployed ? (
-                    <FiatValue value={balances.fiatTotal} maxLength={20} precise />
+                    <FiatValue value={balances.fiatTotal} maxLength={20} precise={false} />
                   ) : (
                     <TokenAmount
                       value={balances.items[0].balance}
