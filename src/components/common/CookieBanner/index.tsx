@@ -15,8 +15,9 @@ import ExternalLink from '../ExternalLink'
 
 const COOKIE_WARNING: Record<CookieType, string> = {
   [CookieType.NECESSARY]: '',
-  [CookieType.UPDATES]: `You attempted to open the "What's new" section but need to accept the "Beamer" cookies first.`,
+  //[CookieType.UPDATES]: `You attempted to open the "What's new" section but need to accept the "Beamer" cookies first.`,
   [CookieType.ANALYTICS]: '',
+  [CookieType.UPDATES]: '',
 }
 
 const CookieCheckbox = ({
