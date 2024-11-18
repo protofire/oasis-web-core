@@ -14,10 +14,9 @@ import {
   hasAcceptedTerms,
 } from '@/store/cookiesAndTermsSlice'
 import { selectCookieBanner, openCookieBanner, closeCookieBanner } from '@/store/popupSlice'
-
+import Link from 'next/link'
 import css from './styles.module.css'
 import { AppRoutes } from '@/config/routes'
-import Link from 'next/link'
 
 const COOKIE_AND_TERM_WARNING: Record<CookieAndTermType, string> = {
   [CookieAndTermType.TERMS]: '',
@@ -87,14 +86,13 @@ export const CookieAndTermBanner = ({
           <Grid item xs>
             <Typography variant="body2" mb={2}>
               By browsing this page, you accept our{' '}
-              <Link href={AppRoutes.terms} style={{ textDecoration: 'underline' }}>
-                Terms & Conditions
+              <Link href={AppRoutes.terms}>
+                <u>Terms & Conditions </u>
               </Link>{' '}
-              and the use of necessary cookies.{' '}
-              <Link href={AppRoutes.cookie} style={{ textDecoration: 'underline' }}>
-                Cookie policy
+              and the use of necessary cookies.
+              <Link href={AppRoutes.cookie}>
+                <u>Cookies Policy</u>{' '}
               </Link>
-              .
             </Typography>
 
             <Grid container alignItems="center" gap={4}>
