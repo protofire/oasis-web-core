@@ -8,10 +8,9 @@ import { useForm } from 'react-hook-form'
 import { useAppDispatch, useAppSelector } from '@/store'
 import { selectCookies, CookieType, saveCookieConsent } from '@/store/cookiesSlice'
 import { selectCookieBanner, openCookieBanner, closeCookieBanner } from '@/store/popupSlice'
-
+import Link from 'next/link'
 import css from './styles.module.css'
 import { AppRoutes } from '@/config/routes'
-import ExternalLink from '../ExternalLink'
 
 const COOKIE_WARNING: Record<CookieType, string> = {
   [CookieType.NECESSARY]: '',
@@ -73,8 +72,14 @@ export const CookieBanner = ({
         <Grid container alignItems="center">
           <Grid item xs>
             <Typography variant="body2" mb={2}>
-              By clicking &quot;Accept all&quot; you agree to the use of the tools listed below and their corresponding
-              cookies. <ExternalLink href={AppRoutes.cookie}>Cookie policy</ExternalLink>
+              By browsing this page, you accept our{' '}
+              <Link href={AppRoutes.terms}>
+                <u>Terms & Conditions </u>
+              </Link>{' '}
+              and the use of necessary cookies.
+              <Link href={AppRoutes.cookie}>
+                <u>Cookies Policy</u>{' '}
+              </Link>
             </Typography>
 
             <Grid container alignItems="center" gap={4}>
