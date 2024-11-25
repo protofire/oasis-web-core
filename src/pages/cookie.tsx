@@ -1,4 +1,4 @@
-import { Typography, Link } from '@mui/material'
+import { Typography } from '@mui/material'
 
 const CookiePolicy = () => {
   return (
