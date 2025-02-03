@@ -21,11 +21,7 @@ const CookiePolicy = () => {
     fetchContent()
   }, [])
 
-  return (
-    <main>
-      {content ? <ReactMarkdown>{content}</ReactMarkdown> : <Typography>Loading cookie policy...</Typography>}
-    </main>
-  )
+  return <main></main>
 }
 
 export default CookiePolicy

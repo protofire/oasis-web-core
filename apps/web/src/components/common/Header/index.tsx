@@ -23,7 +23,6 @@ import { FEATURES } from '@/utils/chains'
 import { useHasFeature } from '@/hooks/useChains'
 import Track from '@/components/common/Track'
 import { OVERVIEW_EVENTS, OVERVIEW_LABELS } from '@/services/analytics'
-import { ReindexBanner } from '@/components/common/ReindexBanner'
 import { useSafeTokenEnabled } from '@/hooks/useSafeTokenEnabled'
 import { useIsOfficialHost } from '@/hooks/useIsOfficialHost'
 import { BRAND_LOGO, BRAND_NAME } from '@/config/constants'
@@ -96,10 +95,6 @@ const Header = ({ onMenuToggle, onBatchToggle }: HeaderProps): ReactElement => {
           <SafeTokenWidget />
         </div>
       )}
-
-      <div className={css.element}>
-        <ReindexBanner />
-      </div>
 
       <div className={css.element}>
         <NotificationCenter />

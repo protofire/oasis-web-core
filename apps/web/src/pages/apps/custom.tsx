@@ -23,10 +23,10 @@ const CustomSafeApps: NextPage = () => {
     setCustomSafeAppToRemove(customSafeAppToRemove)
   }
 
-  // const onConfirmRemoveCustomAppModal = (safeAppId: number) => {
-  //   removeCustomApp(safeAppId)
-  //   setIsOpenRemoveSafeAppModal(false)
-  // }
+  const onConfirmRemoveCustomAppModal = (safeAppId: number) => {
+    removeCustomApp(safeAppId)
+    setIsOpenRemoveSafeAppModal(false)
+  }
 
   return (
     <>
