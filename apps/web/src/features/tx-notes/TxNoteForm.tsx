@@ -12,10 +12,7 @@ export function TxNoteForm({
   txDetails?: TransactionDetails
   onChange: (note: string) => void
 }) {
-  // @FIXME: update CGW types to include note
-  const note = (txDetails as TransactionDetails & { note: string | null })?.note
-
-  if (!isCreation && !note) return null
+  if (!isCreation && !txDetails?.note) return null
 
   return <TxCard>{isCreation ? <TxNoteInput onChange={onChange} /> : <TxNote txDetails={txDetails} />}</TxCard>
 }
