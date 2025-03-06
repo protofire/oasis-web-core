@@ -7664,7 +7664,7 @@ __metadata:
     react-dom: "npm:^19.0.0"
     react-dropzone: "npm:^14.2.3"
     react-gtm-module: "npm:^2.0.11"
-    react-hook-form: "npm:7.41.1"
+    react-hook-form: "npm:7.54.2"
     react-papaparse: "npm:^4.0.2"
     react-redux: "npm:^9.1.2"
     remark-frontmatter: "npm:^5.0.0"
@@ -26181,12 +26181,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-hook-form@npm:7.41.1":
-  version: 7.41.1
-  resolution: "react-hook-form@npm:7.41.1"
+"react-hook-form@npm:7.54.2":
+  version: 7.54.2
+  resolution: "react-hook-form@npm:7.54.2"
   peerDependencies:
-    react: ^16.8.0 || ^17 || ^18
-  checksum: 10/eeb8653359dd36e80867e81302b0988a3fefe5e2170783d70ad325b871b3ae639599c8b317a869d34f165252ddc27eafae51ec7a6877af0733709ed3e3674e1f
+    react: ^16.8.0 || ^17 || ^18 || ^19
+  checksum: 10/b156d15b6246c76d0275e5722d9056014693e014d0e3dec06e44bf2672ee549aaba4366de5144d18c4cab29e631f3b2b84269d4fd5727ca17aad9b970fde6960
   languageName: node
   linkType: hard
 
