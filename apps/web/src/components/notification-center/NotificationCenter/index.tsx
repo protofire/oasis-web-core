@@ -17,26 +17,18 @@ import {
 } from '@/store/notificationsSlice'
 import NotificationCenterList from '@/components/notification-center/NotificationCenterList'
 import UnreadBadge from '@/components/common/UnreadBadge'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { AppRoutes } from '@/config/routes'
-import SettingsIcon from '@/public/images/sidebar/settings.svg'
 
 import css from './styles.module.css'
 import { trackEvent, OVERVIEW_EVENTS } from '@/services/analytics'
 import SvgIcon from '@mui/icons-material/ExpandLess'
-import { useHasFeature } from '@/hooks/useChains'
-import { FEATURES } from '@/utils/chains'
 import { useShowNotificationsRenewalMessage } from '@/components/settings/PushNotifications/hooks/useShowNotificationsRenewalMessage'
 
 const NOTIFICATION_CENTER_LIMIT = 4
 
 const NotificationCenter = (): ReactElement => {
-  const router = useRouter()
   const [showAll, setShowAll] = useState<boolean>(false)
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null)
   const open = Boolean(anchorEl)
-  const hasPushNotifications = useHasFeature(FEATURES.PUSH_NOTIFICATIONS)
   const dispatch = useAppDispatch()
 
   // This hook is used to show the notification renewal message when the app is opened
@@ -90,10 +82,6 @@ const NotificationCenter = (): ReactElement => {
 
   const handleClear = () => {
     dispatch(deleteAllNotifications())
-  }
-
-  const onSettingsClick = () => {
-    setTimeout(handleClose, 300)
   }
 
   const ExpandIcon = showAll ? ExpandLessIcon : ExpandMoreIcon
@@ -177,21 +165,6 @@ const NotificationCenter = (): ReactElement => {
                   {showAll ? 'Hide' : `${notifications.length - NOTIFICATION_CENTER_LIMIT} other notifications`}
                 </Typography>
               </>
-            )}
-
-            {hasPushNotifications && (
-              <Link
-                href={{
-                  pathname: AppRoutes.settings.notifications,
-                  query: router.query,
-                }}
-                passHref
-                legacyBehavior
-              >
-                <MuiLink className={css.settingsLink} variant="body2" onClick={onSettingsClick}>
-                  <SvgIcon component={SettingsIcon} inheritViewBox fontSize="small" /> Push notifications settings
-                </MuiLink>
-              </Link>
             )}
           </div>
         </Paper>
