@@ -6631,16 +6631,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native-firebase/messaging@npm:^21.7.1":
-  version: 21.7.1
-  resolution: "@react-native-firebase/messaging@npm:21.7.1"
+"@react-native-firebase/messaging@npm:^21.13.0":
+  version: 21.13.0
+  resolution: "@react-native-firebase/messaging@npm:21.13.0"
   peerDependencies:
-    "@react-native-firebase/app": 21.7.1
+    "@react-native-firebase/app": 21.13.0
     expo: ">=47.0.0"
   peerDependenciesMeta:
     expo:
       optional: true
-  checksum: 10/035a7e07fb2ff4d7f5b60eb7ba17c55b72f4c0438649085059e724e14bbf3d7a433701e7e22ea92450ca72c14b5b1d71ecdee2d49b6a5eae7cca4e3411b6138f
+  checksum: 10/208e1baf5337d7e068c81d7acc22cea4ea89f829aedf301331a642889c8153ebfe1dcf56d44ebf5da8390ef90640a077dd6145ad191da5ea67e5398d08900b46
   languageName: node
   linkType: hard
 
@@ -7325,7 +7325,7 @@ __metadata:
     "@react-native-community/datetimepicker": "npm:8.2.0"
     "@react-native-community/slider": "npm:4.5.5"
     "@react-native-firebase/app": "npm:^21.7.1"
-    "@react-native-firebase/messaging": "npm:^21.7.1"
+    "@react-native-firebase/messaging": "npm:^21.13.0"
     "@react-native-menu/menu": "npm:^1.1.6"
     "@react-native/babel-preset": "npm:^0.76.2"
     "@react-navigation/material-top-tabs": "npm:^7.1.0"
